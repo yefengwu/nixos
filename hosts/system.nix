@@ -9,7 +9,6 @@
     systemPackages = with pkgs; [
       git
       gcc
-      starship
       unzip
       zip
       rar
