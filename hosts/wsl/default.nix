@@ -12,7 +12,7 @@
     startMenuLaunchers = true;
   };
 
-  networking.hostName = "UM690";
+  networking.hostName = "wsl";
 
   environment.systemPackages = with pkgs; [
     tree

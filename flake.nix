@@ -16,9 +16,9 @@
       ...
     }: {
       # 几乎跟之前配置一样
-      nixosConfigurations.UM690 = let
+      nixosConfigurations.wsl = let
         # 自己定义一个局部变量，并用 specialArgs 传导给其它文件
-        username = "nixos"; 
+        username = "xuwei"; 
       in
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
