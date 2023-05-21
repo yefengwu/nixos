@@ -57,6 +57,7 @@
       size = 10000;
     };
     initExtra = ''
+      [[ ! -f ~/.aliases ]] || source ~/.aliases
       # Standard and additional keybindings
       #
       # Find the key with: showkey -a
@@ -127,4 +128,5 @@
       eval "$(zoxide init zsh)"
     '';
   };
+  home.file.".aliases".source = ./aliases;
 }

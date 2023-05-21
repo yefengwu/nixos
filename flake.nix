@@ -45,9 +45,7 @@
               home-manager.extraSpecialArgs = { inherit inputs; };
               # 导入想要的 home-manager 配置文件
               home-manager.users.${username}.imports = [
-                #./home-manager/cli.nix
-                ./home-manager/default.nix
-                ./home-manager/zsh.nix
+                ./hm/default.nix
               ];
             }
           ];
