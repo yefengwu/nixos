@@ -6,12 +6,15 @@
   environment = {
     binsh = "${pkgs.dash}/bin/dash";
     shells = with pkgs; [ zsh ];
+    variables = { EDITOR = "nvim"; };
     systemPackages = with pkgs; [
       git
+      gh
       gcc
       unzip
       zip
       rar
+      ripgrep
       zoxide
       wget
       neofetch

@@ -23,13 +23,7 @@ return {
 			},
 		})
 		--Switch theme again after lspsaga loaded from
-		if os.getenv("GTK_THEME") == "Nordic" then
-			vim.cmd([[ colorscheme nord ]])
-		elseif os.getenv("GTK_THEME") == "Catppuccin-Frappe-Pink" then
-			vim.cmd([[colorscheme catppuccin-frappe ]])
-		else
-			vim.cmd([[colorscheme catppuccin-latte ]])
-		end
+		vim.cmd([[ colorscheme catppuccin-frappe ]])
 
 		local keymap = vim.keymap.set
 		-- Lsp finder find the symbol definition implement reference
