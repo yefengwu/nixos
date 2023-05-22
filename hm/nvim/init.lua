@@ -1,31 +1,21 @@
-require("base")
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
-		lazypath,
-	})
+for _, source in ipairs {
+  "astronvim.bootstrap",
+  "astronvim.options",
+  "astronvim.lazy",
+  "astronvim.autocmds",
+  "astronvim.mappings",
+} do
+  local status_ok, fault = pcall(require, source)
+  if not status_ok then vim.api.nvim_err_writeln("Failed to load " .. source .. "\n\n" .. fault) end
 end
-vim.opt.rtp:prepend(lazypath)
-local lazy_theme
---[[ if os.getenv("GTK_THEME") == "Nordic" then ]]
---[[ 	lazy_theme = "nord" ]]
---[[ elseif os.getenv("GTK_THEME") == "Catppuccin-Frappe-Pink" then ]]
---[[ 	lazy_theme = "catppuccin-frappe" ]]
---[[ else ]]
---[[ 	lazy_theme = "catppuccin-latte" ]]
---[[ end ]]
-lazy_theme = "catppuccin-frappe"
-local opts = {
-	install = {
-		colorscheme = { lazy_theme },
-	},
-	ui = {
-		size = { width = 1.0, height = 1.0 },
-	},
-}
-require("lazy").setup("plugins", opts)
+
+if astronvim.default_colorscheme then
+  if not pcall(vim.cmd.colorscheme, astronvim.default_colorscheme) then
+    require("astronvim.utils").notify(
+      "Error setting up colorscheme: " .. astronvim.default_colorscheme,
+      vim.log.levels.ERROR
+    )
+  end
+end
+
+require("astronvim.utils").conditional_func(astronvim.user_opts("polish", nil, false), true)
