@@ -6,6 +6,7 @@
     ./nvim
     ./tmux
     ./starship
+    ./ssh
   ];
   home.stateVersion = "22.11";
   programs.git = {
@@ -14,9 +15,6 @@
     userEmail = "franklxw@outlook.com";
   };
   programs.lazygit = {
-    enable = true;
-  };
-  programs.ssh = {
     enable = true;
   };
 }

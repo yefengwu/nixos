@@ -1,7 +1,6 @@
 #some normal command
 alias ps='ps aux'
 alias bat='batcat'
-alias vi='nvim.appimage'
 alias vd='nvim -d'
 alias eo='explorer.exe'
 #alias bcm='BCompare.exe'

@@ -3,5 +3,5 @@
   programs.tmux = {
     enable = true;
   };
-  home.file.".config/tmux/tmux.conf".source = ./tmux.conf;
+  home.file.".tmux.conf".source = ./tmux.conf;
 }
