@@ -185,3 +185,10 @@ alias gupv='git pull --rebase -v'
 alias gwch='git whatchanged -p --abbrev-commit --pretty=medium'
 alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify -m "--wip-- [skip ci]"'
 alias gad='git add . && git commit --amend --no-edit'
+
+# nixos alias
+alias nsf='sudo nixos-rebuild switch --flake .#wsl'
+alias ntf='sudo nixos-rebuild test --flake .#wsl'
+alias nsl='sudo nix-env --list-generations --profile /nix/var/nix/profiles/system'
+alias ngd='sudo nix-collect-garbage -d'
+alias ndg='sudo nix-delete-generations -d'

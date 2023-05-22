@@ -16,6 +16,7 @@
       rar
       ripgrep
       zoxide
+      fd
       wget
       neofetch
       exa

@@ -6,7 +6,6 @@
       viAlias = true;
       vimAlias = true;
       enable = true;
-      withPython3 = true;
       withNodeJs = true;
     };
   };
