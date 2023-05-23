@@ -11,8 +11,13 @@
     # 创建软件的桌面快捷方式
     startMenuLaunchers = true;
   };
+  networking = {
+    hostName = "wsl"; # Define your hostname.
+    networkmanager.enable = true;
+    proxy.default = "http://192.168.1.44:7890";
+    proxy.noProxy = "127.0.0.1, localhost";
+  };
 
-  networking.hostName = "wsl";
 
   environment.systemPackages = with pkgs; [
     tree
