@@ -7,6 +7,7 @@
       vimAlias = true;
       enable = true;
       withNodeJs = true;
+      withPython3 = true;
     };
   };
   home.file.".config/nvim/init.lua".source = ./init.lua;
