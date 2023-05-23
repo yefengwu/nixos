@@ -22,6 +22,7 @@
     };
     initExtra = ''
       [[ ! -f ~/.aliases ]] || source ~/.aliases
+      [[ ! -f ~/.config/bindkey.zsh ]] || source ~/.config/bindkey.zsh
      
       # Disable flow control (ctrl+s, ctrl+q) to enable saving with ctrl+s in Vim
       stty -ixon -ixoff
