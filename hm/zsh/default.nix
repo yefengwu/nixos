@@ -9,21 +9,27 @@
     #    set TTY1 (tty)
     #    [ "$TTY1" = "/dev/tty1" ] && exec dbus-run-session Hyprland
     # '';
-    enableCompletion = true;
-    zplug = {
-      enable = true;
-      plugins = [
-        { name = "zsh-users/zsh-autosuggestions"; } # Simple plugin installation
-        { name = "zsh-users/zsh-syntax-highlighting"; } # Simple plugin installation
-      ];
-    };
     history = {
       size = 10000;
     };
     initExtra = ''
+      ### Added by Zinit's installer
+      if [ ! -f $HOME/.zinit/bin/zinit.zsh ]; then
+         command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+         command git clone https://github.com/zdharma-continuum/zinit.git "$HOME/.zinit/bin"
+      fi
+
+      source $HOME/.zinit/bin/zinit.zsh
+
+      ### End of Zinit's installer chunk
+      zinit light zsh-users/zsh-syntax-highlighting
+      zinit light zsh-users/zsh-autosuggestions
+      zinit light zsh-users/zsh-completions
+      bindkey ',' autosuggest-accept
+
       [[ ! -f ~/.aliases ]] || source ~/.aliases
       [[ ! -f ~/.config/bindkey.zsh ]] || source ~/.config/bindkey.zsh
-     
+       
       # Disable flow control (ctrl+s, ctrl+q) to enable saving with ctrl+s in Vim
       stty -ixon -ixoff
       alias ..='cd ..'
