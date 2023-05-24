@@ -143,12 +143,12 @@ return {
 		})
 		nvim_lsp.html.setup({
 			on_attach = on_attach,
-			cmd = { "/home/ruixi/.npm-global/bin/vscode-html-language-server", "--stdio" },
+			cmd = { "vscode-html-language-server", "--stdio" },
 		})
 
 		nvim_lsp.cssls.setup({
 			on_attach = on_attach,
-			cmd = { "/home/ruixi/.npm-global/bin/vscode-css-language-server", "--stdio" },
+			cmd = { "vscode-css-language-server", "--stdio" },
 		})
 
 		nvim_lsp.zk.setup({
@@ -157,16 +157,29 @@ return {
 
 		nvim_lsp.tsserver.setup({
 			on_attach = on_attach,
-			cmd = { "/home/ruixi/.npm-global/bin/typescript-language-server", "--stdio" },
+			cmd = { "typescript-language-server", "--stdio" },
 		})
 
 		nvim_lsp.bashls.setup({
-			cmd = { "/home/ruixi/.npm-global/bin/bash-language-server", "start" },
+			cmd = { "bash-language-server", "start" },
 		})
 
 		nvim_lsp.rnix.setup({
 			on_attach = on_attach,
 		})
+		nvim_lsp.nil_ls.setup({
+			on_attach = on_attach,
+			settings = {
+				["nil"] = {
+					nix = {
+						flake = {
+							autoArchive = true,
+						},
+					},
+				},
+			},
+		})
+		nvim_lsp.hls.setup({})
 
 		-- ebuild Syntastic(install dev-util/pkgcheck)
 		vim.g.syntastic_ebuild_checkers = "pkgcheck"
@@ -175,7 +188,7 @@ return {
 		-- UI --
 		--------
 		--Change diagnostic symbols in the sign column (gutter)
-		local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+		local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 		for type, icon in pairs(signs) do
 			local hl = "DiagnosticSign" .. type
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })

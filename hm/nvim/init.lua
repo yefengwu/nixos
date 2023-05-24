@@ -11,7 +11,8 @@ if not vim.loop.fs_stat(lazypath) then
 	})
 end
 vim.opt.rtp:prepend(lazypath)
-local lazy_theme
+
+--[[ local lazy_theme ]]
 --[[ if os.getenv("GTK_THEME") == "Nordic" then ]]
 --[[ 	lazy_theme = "nord" ]]
 --[[ elseif os.getenv("GTK_THEME") == "Catppuccin-Frappe-Pink" then ]]
@@ -19,13 +20,13 @@ local lazy_theme
 --[[ else ]]
 --[[ 	lazy_theme = "catppuccin-latte" ]]
 --[[ end ]]
-lazy_theme = "catppuccin-frappe"
-local opts = {
-	install = {
-		colorscheme = { lazy_theme },
-	},
-	ui = {
-		size = { width = 1.0, height = 1.0 },
-	},
-}
+--[[ lazy_theme = "catppuccin-frappe" ]]
+--[[ local opts = { ]]
+--[[ 	install = { ]]
+--[[ 		colorscheme = { lazy_theme }, ]]
+--[[ 	}, ]]
+--[[ 	ui = { ]]
+--[[ 		size = { width = 1.0, height = 1.0 }, ]]
+--[[ 	}, ]]
+--[[ } ]]
 require("lazy").setup("plugins", opts)

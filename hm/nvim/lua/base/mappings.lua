@@ -7,6 +7,7 @@ keymap("", "<Space>", "<Nop>", opts)
 keymap("", "q", "<Nop>", opts)
 vim.g.mapleader = " "
 
+keymap("", "<leader>v", "<C-v>", opts)
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",
