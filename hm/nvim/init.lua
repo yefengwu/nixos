@@ -20,13 +20,13 @@ vim.opt.rtp:prepend(lazypath)
 --[[ else ]]
 --[[ 	lazy_theme = "catppuccin-latte" ]]
 --[[ end ]]
---[[ lazy_theme = "catppuccin-frappe" ]]
---[[ local opts = { ]]
---[[ 	install = { ]]
---[[ 		colorscheme = { lazy_theme }, ]]
---[[ 	}, ]]
---[[ 	ui = { ]]
---[[ 		size = { width = 1.0, height = 1.0 }, ]]
---[[ 	}, ]]
---[[ } ]]
+local lazy_theme = "catppuccin-frappe"
+local opts = {
+	install = {
+		colorscheme = { lazy_theme },
+	},
+	ui = {
+		size = { width = 1.0, height = 1.0 },
+	},
+}
 require("lazy").setup("plugins", opts)

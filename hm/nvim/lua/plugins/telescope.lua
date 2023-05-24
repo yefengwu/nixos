@@ -1,7 +1,7 @@
 return {
 	"nvim-telescope/telescope.nvim",
 	keys = {
-		{ "<Leader>e", "<cmd>Telescope<CR>", desc = "telescope" },
+		{ "<A-p>", "<cmd>Telescope<CR>", desc = "telescope" },
 		{ "<Leader>f", "<cmd>Telescope find_files<CR>", desc = "telescope" },
 	},
 	dependencies = { "nvim-telescope/telescope-media-files.nvim" },
