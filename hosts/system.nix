@@ -9,6 +9,7 @@
     variables = { EDITOR = "nvim"; };
     systemPackages = with pkgs; [
       fzf
+      fd
       git
       gh
       gcc
@@ -22,6 +23,7 @@
       neofetch
       exa
       ranger
+      joshuto
       killall
     ];
   };

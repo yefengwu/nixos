@@ -8,6 +8,6 @@ return {
 		require("telescope").load_extension("lazygit")
 	end,
 	keys = {
-		{ "<Leader>g", "<cmd>LazyGit<CR>", desc = "lazygit" },
+		--[[ { "<Leader>g", "<cmd>LazyGit<CR>", desc = "lazygit" }, ]]
 	},
 }

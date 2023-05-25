@@ -22,7 +22,7 @@ alias pu=pushd
 alias rd=rmdir
 alias sp='sudo apt update && sudo apt upgrade -y'
 alias which-command=whence
-alias ra=ranger
+alias ra=joshuto
 alias vf='vimdiff'
 alias home='cd $HOME'
 alias ..='cd ..'
@@ -41,7 +41,6 @@ alias 8='cd -8'
 alias 9='cd -9'
 alias _=sudo
 alias afind='ack -il'
-alias fd='fdfind'
 alias d='dirs -v | head -10'
 #if use ranger , please add following
 alias re='echo -e "\033[?25h"'
