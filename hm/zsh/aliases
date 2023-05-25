@@ -57,7 +57,7 @@ alias de='function(){ docker exec -it "$1" /bin/sh }'
 
 #git-alias
 alias g=git
-alias ga='git add'
+alias ga='git add .'
 alias gaa='git add --all'
 alias gapa='git add --patch'
 alias gau='git add --update'
@@ -187,7 +187,7 @@ alias gad='git add . && git commit --amend --no-edit'
 
 # nixos alias
 alias nsf='sudo nixos-rebuild switch --flake .#wsl'
-alias ntf='sudo nixos-rebuild test --flake .#wsl'
+alias nrt='sudo nixos-rebuild test --flake .#wsl'
 alias nsl='sudo nix-env --list-generations --profile /nix/var/nix/profiles/system'
 alias ngd='sudo nix-collect-garbage -d'
 alias ndg='sudo nix-delete-generations -d'

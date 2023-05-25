@@ -33,10 +33,6 @@
             ./hosts/wsl
             ./hosts/system.nix
 
-            # 导入之前系统的一些配置
-            #./nixos/nixconfig.nix
-            #./nixos/font.nix
-
             # 导入 home-manager 模块
             home-manager.nixosModules.home-manager
             {
