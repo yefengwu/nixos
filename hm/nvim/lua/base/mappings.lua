@@ -34,7 +34,7 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 -- Naviagate buffers --
 keymap("n", "<TAB>", ":bnext<CR>", opts)
 keymap("n", "<S-TAB>", ":bprevious<CR>", opts)
-keymap("n", "<leader>c", ":bd", opts)
+keymap("n", "<leader>c", ":bw<CR>", opts)
 
 -- Stay in indent mode --
 keymap("v", "<", "<gv", opts)
