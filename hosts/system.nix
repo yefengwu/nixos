@@ -21,6 +21,7 @@
       fd
       wget
       neofetch
+      lazydocker
       exa
       ranger
       joshuto

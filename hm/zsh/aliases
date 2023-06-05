@@ -12,6 +12,7 @@ alias history='fc -l 1'
 alias l='ls -lah'
 alias la='ls -lAh'
 alias lg='lazygit'
+alias lk='lazydocker'
 alias ls='ls --color=tty'
 alias lsa='ls -lah'
 alias md='mkdir -p'
@@ -53,7 +54,7 @@ alias zi='__zoxide_zi'
 alias ds='docker ps -a --format "table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}"'
 alias di='docker images'
 alias da='docker attach'
-alias de='function(){ docker exec -it "$1" /bin/sh }'
+alias de='function(){ docker exec -it "$1" /bin/bash }'
 
 #git-alias
 alias g=git

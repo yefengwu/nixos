@@ -27,6 +27,11 @@
   # zsh
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
+  virtualisation.docker.enable = true;
+  users.users.${username} = {
+    isNormalUser = true;
+    extraGroups = [ "docker" ];
+  };
 
   time.timeZone = "Asia/Shanghai";
   system.stateVersion = "22.11";

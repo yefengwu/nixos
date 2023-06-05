@@ -1,6 +1,7 @@
 { nixpkgs ? import <nixpkgs> { } }:
 with nixpkgs; mkShellNoCC {
   nativeBuildInputs = [
+    bash
     wget
     gawk
     gcc9
@@ -16,5 +17,6 @@ with nixpkgs; mkShellNoCC {
     autoconf
     automake
     libtool
+    uclibc
   ];
 }

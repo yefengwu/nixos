@@ -32,6 +32,7 @@
             # 导入自己写的 wsl 系统配置
             ./hosts/wsl
             ./hosts/system.nix
+            # ./modules/virtualisation
 
             # 导入 home-manager 模块
             home-manager.nixosModules.home-manager
