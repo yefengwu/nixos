@@ -15,6 +15,7 @@
     userEmail = "franklxw@outlook.com";
     extraConfig = {
       init.defaultBranch = "main";
+      pull.rebase = true;
     };
   };
   programs.lazygit = {

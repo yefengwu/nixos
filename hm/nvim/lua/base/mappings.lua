@@ -18,7 +18,7 @@ keymap("", "<leader>v", "<C-v>", opts)
 
 -- Better to save file & exit file --
 keymap("n", "Q", ":q<CR>", opts)
-keymap("n", "<leader>q", ":quitall!<CR>", opts)
+keymap("n", "<leader>q", ":q!<CR>", opts)
 keymap("n", "<leader>w", ":w!<CR>", opts)
 keymap("n", "S", ":w<CR>", opts)
 
@@ -34,7 +34,11 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 -- Naviagate buffers --
 keymap("n", "<TAB>", ":bnext<CR>", opts)
 keymap("n", "<S-TAB>", ":bprevious<CR>", opts)
-keymap("n", "<leader>c", ":bw<CR>", opts)
+
+-- Buffer mappings
+keymap("n", "<Space>bd", ":Bdelete<CR>", opts)
+keymap("n", "<Space>bn", ":BufferLineMoveNext<CR>", opts)
+keymap("n", "<Space>bp", ":BufferLineMovePrev<CR>", opts)
 
 -- Stay in indent mode --
 keymap("v", "<", "<gv", opts)

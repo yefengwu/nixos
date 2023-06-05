@@ -1,5 +1,5 @@
 return {
-	"kyazdani42/nvim-tree.lua",
+	"nvim-tree/nvim-tree.lua",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	keys = {
 		{ "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "NvimTree" },
@@ -19,8 +19,8 @@ return {
 			view = {
 				--[[ width = 25, ]]
 				--[[ height = 30, ]]
-				side = "left",
-				--[[ float = {
+				--[[ side = "left", ]]
+				float = {
 					enable = true,
 					open_win_config = {
 						relative = "editor",
@@ -30,7 +30,7 @@ return {
 						row = 6,
 						col = 45,
 					},
-				}, ]]
+				},
 			},
 		})
 	end,
