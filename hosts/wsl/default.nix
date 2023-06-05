@@ -1,7 +1,6 @@
-{
-  pkgs,
-  username,
-  ...
+{ pkgs
+, username
+, ...
 }: {
   # 主要区别就是这个 wsl 模块
   # 其实就是抄这里 https://github.com/nix-community/NixOS-WSL/blob/main/configuration.nix
@@ -14,8 +13,6 @@
   networking = {
     hostName = "wsl"; # Define your hostname.
     networkmanager.enable = true;
-    proxy.default = "http://192.168.1.44:7890";
-    proxy.noProxy = "127.0.0.1, localhost";
   };
 
 
