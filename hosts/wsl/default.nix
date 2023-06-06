@@ -33,6 +33,13 @@
     extraGroups = [ "docker" ];
   };
 
+  # Enable the OpenSSH daemon.
+  services.openssh = {
+    enable = true;
+    settings.PasswordAuthentication = true;
+    # I'll disable this once I can connect.
+  };
+
   time.timeZone = "Asia/Shanghai";
   system.stateVersion = "22.11";
 }

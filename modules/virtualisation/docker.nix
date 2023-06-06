@@ -10,4 +10,11 @@
   environment.systemPackages = with pkgs; [
     docker-compose
   ];
+  buildimage = {
+    name = "frpc";
+    tag = "latest";
+    config = {
+      WordingDir = "$HOME/docker/frpc.init";
+    };
+  };
 }
