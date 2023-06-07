@@ -1,36 +1,20 @@
 {
+  description = "xuwei's NixOS Flake"
   inputs = {
-    # 新加入 nixos-wsl
-    nixos-wsl = {
-      url = "github:nix-community/NixOS-WSL";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+      nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
 
   outputs =
-    inputs @ { self
-    , nixpkgs
-    , nixos-wsl
-    , # 新加入
-      nixos-hardware
-    , home-manager
-    , ...
-    }: {
-      # 几乎跟之前配置一样
-      nixosConfigurations.wsl =
+    inputs @ { self, nixpkgs, ...}@inputs: {
+      nixosConfigurations."nixos" =
         let
-          # 自己定义一个局部变量，并用 specialArgs 传导给其它文件
           username = "xuwei";
         in
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs username; };
           modules = [
-            # 导入 nixos-wsl 模块
-            nixos-wsl.nixosModules.wsl
-
-            # 导入自己写的 wsl 系统配置
-            ./hosts/wsl
+            ./hosts/minium
             ./hosts/system.nix
             # ./modules/virtualisation
 
