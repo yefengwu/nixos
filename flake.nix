@@ -1,12 +1,16 @@
 {
-  description = "xuwei's NixOS Flake"
+  description = "xuwei's NixOS Flake";
   inputs = {
-      nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    inputs @ { self, nixpkgs, ...}@inputs: {
-      nixosConfigurations."nixos" =
+    inputs @ { self, nixpkgs, home-manager, ... }: {
+      nixosConfigurations."minium" =
         let
           username = "xuwei";
         in
@@ -18,13 +22,11 @@
             ./hosts/system.nix
             # ./modules/virtualisation
 
-            # 导入 home-manager 模块
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit inputs; };
-              # 导入想要的 home-manager 配置文件
               home-manager.users.${username}.imports = [
                 ./hm/default.nix
               ];
