@@ -187,8 +187,8 @@ alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commi
 alias gad='git add . && git commit --amend --no-edit'
 
 # nixos alias
-alias nsf='sudo nixos-rebuild switch --flake .#wsl'
-alias nrt='sudo nixos-rebuild test --flake .#wsl'
+alias nsf='sudo nixos-rebuild switch --flake .#minium'
+alias nrt='sudo nixos-rebuild test --flake .#minium'
 alias nsl='sudo nix-env --list-generations --profile /nix/var/nix/profiles/system'
 alias ngd='sudo nix-collect-garbage -d'
 alias ndg='sudo nix-delete-generations -d'
