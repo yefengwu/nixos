@@ -41,11 +41,11 @@
       fi
        
       # Disable flow control (ctrl+s, ctrl+q) to enable saving with ctrl+s in Vim
-      # stty -ixon -ixoff
-      # autoload -Uz compinit && compinit
-      # zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
-      # eval "$(starship init zsh)"
-      # eval "$(zoxide init zsh)"
+      stty -ixon -ixoff
+      autoload -Uz compinit && compinit
+      zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
+      eval "$(starship init zsh)"
+      eval "$(zoxide init zsh)"
     '';
   };
   home.file.".aliases".source = ./aliases;
