@@ -2,36 +2,44 @@
   description = "xuwei's NixOS Flake";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    nil.url = "github:oxalica/nil";
+    impermanence.url = "github:nix-community/impermanence";
+    sops-nix.url = "github:Mic92/sops-nix";
+    disko.url = "github:nix-community/disko";
+    emanote.url = "github:srid/emanote";
+    joshuto.url = "github:kamiyaa/joshuto";
+    nur.url = "github:nix-community/NUR";
+    lanzaboote = {
+      #please read this doc -> https://github.com/nix-community/lanzaboote/blob/master/docs/QUICK_START.md 
+      url = "github:nix-community/lanzaboote";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs =
-    inputs @ { self, nixpkgs, home-manager, ... }: {
-      nixosConfigurations."minium" =
-        let
-          username = "xuwei";
-        in
-        nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs username; };
-          modules = [
-            ./hosts/minium
-            ./hosts/system.nix
-            # ./modules/virtualisation
-
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.${username}.imports = [
-                ./hm/default.nix
-              ];
-            }
-          ];
-        };
+  outputs = inputs @ { self, nixpkgs, home-manager, flake-parts, ... }:
+    let
+      user = "xuwei";
+    in
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [ "x86_64-linux" ];
+      flake = {
+        nixosConfigurations = (
+          import ./hosts {
+            system = "x86_64-linux";
+            inherit nixpkgs self inputs user;
+          }
+        );
+      };
+      perSystem = { config, inputs', pkgs, system, lib, ... }:
+        { };
     };
 }
