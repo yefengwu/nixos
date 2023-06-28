@@ -240,8 +240,8 @@
       # quickly launch program #
       #------------------------# 
       # bind=$mainMod,B,exec,firefox
-      bind=$mainMod,M,exec,netease-cloud-music-gtk4 
-      bind=$mainMod SHIFT,M,exec,kitty --class="musicfox" --hold sh -c "musicfox" 
+      # bind=$mainMod,M,exec,netease-cloud-music-gtk4 
+      bind=$mainMod,M,exec,kitty --class="musicfox" --hold sh -c "musicfox" 
       bind=$mainMod SHIFT,D,exec,kitty  --class="danmufloat" --hold sh -c "export TERM=xterm-256color && bili"
       bind=$mainMod SHIFT,X,exec,myswaylock
       bind=$mainMod,T,exec,telegram-desktop
@@ -255,6 +255,8 @@
       #-----------------------------------------#
       # control volume,brightness,media players-#
       #-----------------------------------------#
+      bind=,F11,exec, pamixer -d 5
+      bind=,F12,exec, pamixer -i 5
       bind=,XF86AudioRaiseVolume,exec, pamixer -i 5
       bind=,XF86AudioLowerVolume,exec, pamixer -d 5
       bind=,XF86AudioMute,exec, pamixer -t
