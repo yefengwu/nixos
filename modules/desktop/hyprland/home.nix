@@ -40,8 +40,7 @@
         kb_rules =
         follow_mouse = 2 # 0|1|2|3
         float_switch_override_focus = 2
-        numlock_by_default = true
-        touchpad {
+        numlock_by_default = true touchpad {
         natural_scroll = yes
         }
         sensitivity = 0 # -1.0 - 1.0, 0 means no modification.

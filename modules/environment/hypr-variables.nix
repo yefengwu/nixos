@@ -6,9 +6,9 @@
       EDITOR = "nvim";
       BROWSER = "firefox";
       TERMINAL = "kitty";
-      # GTK_IM_MODULE = "fcitx5";
-      # QT_IM_MODULE = "fcitx5";
-      # XMODIFIERS = "@im=fcitx5";
+      GTK_IM_MODULE = "fcitx5";
+      QT_IM_MODULE = "fcitx5";
+      XMODIFIERS = "@im=fcitx5";
       QT_QPA_PLATFORMTHEME = "gtk3";
       QT_SCALE_FACTOR = "1";
       MOZ_ENABLE_WAYLAND = "1";

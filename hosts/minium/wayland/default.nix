@@ -96,6 +96,10 @@
     packages = with pkgs; [
       firefox
       kate
+      aichat
+      chatgpt-cli
+      bili_tui
+      go-cqhttp
     ];
   };
 
