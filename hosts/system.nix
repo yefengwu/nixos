@@ -29,6 +29,8 @@
     ];
   };
 
+  services.dbus.enable = true;
+
   nix = {
     settings = {
       substituters = [

@@ -10,6 +10,8 @@
     emanote.url = "github:srid/emanote";
     joshuto.url = "github:kamiyaa/joshuto";
     nur.url = "github:nix-community/NUR";
+    hypr-contrib.url = "github:hyprwm/contrib";
+    hyprpicker.url = "github:hyprwm/hyprpicker";
     lanzaboote = {
       #please read this doc -> https://github.com/nix-community/lanzaboote/blob/master/docs/QUICK_START.md 
       url = "github:nix-community/lanzaboote";
@@ -28,10 +30,12 @@
   outputs = inputs @ { self, nixpkgs, home-manager, flake-parts, ... }:
     let
       user = "xuwei";
+      selfPkgs = import ./pkgs;
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
       flake = {
+        overlays.default = selfPkgs.overlay;
         nixosConfigurations = (
           import ./hosts {
             system = "x86_64-linux";

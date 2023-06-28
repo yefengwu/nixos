@@ -14,8 +14,7 @@ in
     inherit system;
     specialArgs = { inherit inputs user; };
     modules = [
-      ./minium/default.nix
-      # ./laptop/wayland #hyprland and sway,go to this dir,choose one
+      ./minium/wayland
       # ./laptop/x11 #only bspwm
     ] ++ [
       ./system.nix
@@ -35,6 +34,9 @@ in
           users.${user} = {
             imports = [
               (import ../hm/default.nix)
+              (import ./minium/wayland/home.nix)
+            ] ++ [
+              inputs.hyprland.homeManagerModules.default
             ];
           };
         };
