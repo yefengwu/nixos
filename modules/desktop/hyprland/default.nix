@@ -3,7 +3,6 @@
   imports = [ ../../programs/wayland/waybar/hyprland_waybar.nix ];
   programs = {
     dconf.enable = true;
-    light.enable = true;
   };
 
   environment.systemPackages = with pkgs; [

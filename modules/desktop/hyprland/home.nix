@@ -138,7 +138,8 @@
       }
       bind = $mainMod, Return, exec, kitty
       bind = $mainMod SHIFT, Return, exec, kitty --class="termfloat"
-      bind = $mainMod SHIFT, P, killactive,
+      # bind = $mainMod SHIFT, P, killactive,
+      bind = $mainMod,Q,killactive,
       bind = $mainMod SHIFT, Q, exit,
       bind = $mainMod SHIFT, Space, togglefloating,
       bind = $mainMod,F,fullscreen
@@ -162,6 +163,10 @@
       bind = $mainMod, right, movefocus, r
       bind = $mainMod, up, movefocus, u
       bind = $mainMod, down, movefocus, d
+
+      bind = $mainMod, H, movefocus, l
+      bind = $mainMod, L, movefocus, r
+ 
       #----------------------------------------#
       # Switch workspaces with mainMod + [0-9] #
       #----------------------------------------#
@@ -175,11 +180,11 @@
       bind = $mainMod, 8, workspace, 8
       bind = $mainMod, 9, workspace, 9
       bind = $mainMod, 0, workspace, 10
-      bind = $mainMod, L, workspace, +1
-      bind = $mainMod, H, workspace, -1
+      bind = $mainMod, N, workspace, +1
+      bind = $mainMod, B, workspace, -1
       bind = $mainMod, period, workspace, e+1
       bind = $mainMod, comma, workspace,e-1
-      bind = $mainMod, Q, workspace,QQ
+      # bind = $mainMod, Q, workspace,QQ
       bind = $mainMod, T, workspace,TG
       bind = $mainMod, M, workspace,Music
       #-------------------------------#
@@ -234,13 +239,13 @@
       #------------------------#
       # quickly launch program #
       #------------------------# 
-      bind=$mainMod,B,exec,nvidia-offload firefox
+      # bind=$mainMod,B,exec,firefox
       bind=$mainMod,M,exec,netease-cloud-music-gtk4 
       bind=$mainMod SHIFT,M,exec,kitty --class="musicfox" --hold sh -c "musicfox" 
       bind=$mainMod SHIFT,D,exec,kitty  --class="danmufloat" --hold sh -c "export TERM=xterm-256color && bili"
       bind=$mainMod SHIFT,X,exec,myswaylock
       bind=$mainMod,T,exec,telegram-desktop
-      bind=$mainMod,Q,exec,nvidia-offload icalingua-plus-plus --enable-features=UseOzonePlatform --ozone-platform=wayland
+      # bind=$mainMod,Q,exec,icalingua-plus-plus --enable-features=UseOzonePlatform --ozone-platform=wayland 
       bind=$mainMod,bracketleft,exec,grimblast --notify --cursor  copysave area ~/Pictures/$(date "+%Y-%m-%d"T"%H:%M:%S_no_watermark").png
       bind=$mainMod,bracketright,exec, grimblast --notify --cursor  copy area
       bind=$mainMod,A,exec, grimblast_watermark

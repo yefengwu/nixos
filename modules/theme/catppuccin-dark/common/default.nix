@@ -1,5 +1,5 @@
 [
- # ./gtk
+  ./gtk
   ./btop
   ./cava
   ./rofi

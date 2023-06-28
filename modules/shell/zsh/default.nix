@@ -31,14 +31,14 @@
       [[ ! -f ~/.config/bindkey.zsh ]] || source ~/.config/bindkey.zsh
 
       # tmux start
-      if [[ -z "$TMUX" ]] ;then
-          ID="`tmux ls | grep -vm1 attached | cut -d: -f1`" # get the id of a deattached session
-          if [[ -z "$ID" ]] ;then # if not available create a new one
-              tmux new-session
-          else
-              tmux attach-session -t "$ID" # if available attach to it
-          fi
-      fi
+      # if [[ -z "$TMUX" ]] ;then
+      #     ID="`tmux ls | grep -vm1 attached | cut -d: -f1`" # get the id of a deattached session
+      #     if [[ -z "$ID" ]] ;then # if not available create a new one
+      #         tmux new-session
+      #     else
+      #         tmux attach-session -t "$ID" # if available attach to it
+      #     fi
+      # fi
        
       # Disable flow control (ctrl+s, ctrl+q) to enable saving with ctrl+s in Vim
       stty -ixon -ixoff

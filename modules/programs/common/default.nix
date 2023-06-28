@@ -13,5 +13,6 @@
   ./kitty
   ./youtube-tui
   ./aliyun-cli
+  ./alacritty
   /* ./emanote */
 ]

@@ -9,7 +9,7 @@
     [
       # Include the results of the hardware scan.
       ../hardware-configuration.nix
-      # ../../../modules/fonts
+      ../../../modules/fonts
       ../../../modules/desktop/hyprland
     ];
 
@@ -89,8 +89,8 @@
   users.users.${user} = {
     isNormalUser = true;
     hashedPassword = "$6$H4uVu105iaTFUNr6$LXi33OjyiRKiY9L4RLVmEIoYYVNLApbbwf/5Q/GtOL.LurJlufYfInoPSrsoFfVa/vqi8Gt8Elu0eOyzxL2WC1";
-    description = "minium";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    shell = pkgs.zsh;
+    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" "video" "audio" ];
     packages = with pkgs; [
       firefox
       kate
