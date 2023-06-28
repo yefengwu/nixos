@@ -2,10 +2,11 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, user, ... }:
+{ config, pkgs, user, inputs, lib, ... }:
 
 {
   imports =
+    (import ../../../modules/hardware) ++
     [
       # Include the results of the hardware scan.
       ../hardware-configuration.nix
@@ -78,7 +79,6 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
-  programs.zsh.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -87,6 +87,7 @@
   users.users.root = {
     initialHashedPassword = "$6$H4uVu105iaTFUNr6$LXi33OjyiRKiY9L4RLVmEIoYYVNLApbbwf/5Q/GtOL.LurJlufYfInoPSrsoFfVa/vqi8Gt8Elu0eOyzxL2WC1";
   };
+  programs.zsh.enable = true;
   users.users.${user} = {
     isNormalUser = true;
     hashedPassword = "$6$H4uVu105iaTFUNr6$LXi33OjyiRKiY9L4RLVmEIoYYVNLApbbwf/5Q/GtOL.LurJlufYfInoPSrsoFfVa/vqi8Gt8Elu0eOyzxL2WC1";
@@ -106,6 +107,35 @@
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
+    libnotify
+    wl-clipboard
+    wlr-randr
+    wayland
+    wayland-scanner
+    wayland-utils
+    egl-wayland
+    wayland-protocols
+    pkgs.xorg.xeyes
+    glfw-wayland
+    xwayland
+    pkgs.qt6.qtwayland
+    cinnamon.nemo
+    polkit_gnome
+    networkmanagerapplet
+    wev
+    wf-recorder
+    alsa-lib
+    alsa-utils
+    flac
+    pulsemixer
+    linux-firmware
+    sshpass
+    /* pkgs.rust-bin.stable.latest.default */
+    lxappearance
+    imagemagick
+    pkgs.sway-contrib.grimshot
+    flameshot
+    grim
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -125,7 +155,19 @@
     settings.PasswordAuthentication = true;
     # I'll disable this once I can connect.
   };
-
+  security.polkit.enable = true;
+  security.sudo = {
+    enable = false;
+    extraConfig = ''
+      ${user} ALL=(ALL) NOPASSWD:ALL
+    '';
+  };
+  security.doas = {
+    enable = true;
+    extraConfig = ''
+      permit nopass :wheel
+    '';
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

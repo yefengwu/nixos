@@ -249,7 +249,8 @@
       bind=$mainMod,bracketleft,exec,grimblast --notify --cursor  copysave area ~/Pictures/$(date "+%Y-%m-%d"T"%H:%M:%S_no_watermark").png
       bind=$mainMod,bracketright,exec, grimblast --notify --cursor  copy area
       bind=$mainMod,A,exec, grimblast_watermark
-      bind=,Super_L,exec, pkill rofi || ~/.config/rofi/launcher.sh
+      # bind=,Super_L,exec, pkill rofi || bash ~/.config/rofi/launcher.sh
+      bind=$mainMod, Space, exec, pkill rofi || bash ~/.config/rofi/launcher.sh
       bind=$mainMod,Super_L,exec, bash ~/.config/rofi/powermenu.sh
       #-----------------------------------------#
       # control volume,brightness,media players-#

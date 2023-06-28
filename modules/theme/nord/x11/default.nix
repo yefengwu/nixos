@@ -1,8 +1,7 @@
 let
   common = import ../common;
 in
-
 [
   ./notice
-  ./swww
+  ./polybar
 ] ++ common

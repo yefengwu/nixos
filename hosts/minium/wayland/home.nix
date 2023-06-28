@@ -4,9 +4,10 @@
   imports =
     # [ (import ../../../modules/desktop/sway/home.nix) ] ++
     [ (import ../../../modules/desktop/hyprland/home.nix) ] ++
+    [ (import ../../../modules/scripts) ] ++
     (import ../../../modules/programs/wayland) ++
     (import ../../../modules/shell) ++
-    (import ../../../modules/editors) ++ 
+    (import ../../../modules/editors) ++
     (import ../../../modules/theme/catppuccin-dark/wayland);
 
   home = {
