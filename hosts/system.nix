@@ -8,6 +8,7 @@
     shells = with pkgs; [ zsh ];
     variables = { EDITOR = "nvim"; };
     systemPackages = with pkgs; [
+      inputs.agenix.packages."${system}".default
       fzf
       fd
       git

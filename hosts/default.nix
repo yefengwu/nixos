@@ -68,6 +68,7 @@ in
       inputs.impermanence.nixosModules.impermanence
       inputs.nur.nixosModules.nur
       inputs.sops-nix.nixosModules.sops
+      inputs.agenix.nixosModules.default
       inputs.disko.nixosModules.disko
       inputs.lanzaboote.nixosModules.lanzaboote
       inputs.home-manager.nixosModules.home-manager

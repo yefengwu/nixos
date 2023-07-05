@@ -5,6 +5,7 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../modules/desktop/gnome
+      ../../secrets
     ];
 
   # boot.loader.grub.enable = true;
@@ -32,9 +33,11 @@
   virtualisation.docker.enable = true;
   users.users.${user} = {
     isNormalUser = true;
+    passwordFile = config.age.secrets.secret1.path;
     hashedPassword = "$6$H4uVu105iaTFUNr6$LXi33OjyiRKiY9L4RLVmEIoYYVNLApbbwf/5Q/GtOL.LurJlufYfInoPSrsoFfVa/vqi8Gt8Elu0eOyzxL2WC1";
     extraGroups = [ "docker" "wheel" ];
     packages = with pkgs; [
+      bitwarden-cli
     ];
   };
 

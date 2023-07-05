@@ -6,6 +6,7 @@
     nil.url = "github:oxalica/nil";
     impermanence.url = "github:nix-community/impermanence";
     sops-nix.url = "github:Mic92/sops-nix";
+    agenix.url = "github:ryantm/agenix";
     disko.url = "github:nix-community/disko";
     emanote.url = "github:srid/emanote";
     joshuto.url = "github:kamiyaa/joshuto";
@@ -27,7 +28,7 @@
     };
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, flake-parts, ... }:
+  outputs = inputs @ { self, nixpkgs, agenix, home-manager, flake-parts, ... }:
     let
       user = "xuwei";
       selfPkgs = import ./pkgs;
