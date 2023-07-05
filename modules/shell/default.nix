@@ -4,4 +4,7 @@
   ./tmux
   ./ssh
   ./git
+  ./joshuto
+  ./neofetch
+  ./lazygit
 ]

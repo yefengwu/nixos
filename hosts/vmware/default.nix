@@ -1,40 +1,41 @@
-{ pkgs, username, ... }: {
+{ config, pkgs, user, inputs, lib, ... }:
+{
   imports =
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../modules/desktop/gnome
     ];
 
+  # boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
+
+  virtualisation.vmware.guest.enable = true;
 
   networking = {
     hostName = "minium";
     networkmanager.enable = true;
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
   environment.systemPackages = with pkgs; [
     tree
     file
-    kitty
     mosh
   ];
 
+  users.users.root = {
+    initialHashedPassword = "$6$H4uVu105iaTFUNr6$LXi33OjyiRKiY9L4RLVmEIoYYVNLApbbwf/5Q/GtOL.LurJlufYfInoPSrsoFfVa/vqi8Gt8Elu0eOyzxL2WC1";
+  };
   # zsh
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
   virtualisation.docker.enable = true;
-  users.users.${username} = {
+  users.users.${user} = {
     isNormalUser = true;
     hashedPassword = "$6$H4uVu105iaTFUNr6$LXi33OjyiRKiY9L4RLVmEIoYYVNLApbbwf/5Q/GtOL.LurJlufYfInoPSrsoFfVa/vqi8Gt8Elu0eOyzxL2WC1";
     extraGroups = [ "docker" "wheel" ];
+    packages = with pkgs; [
+    ];
   };
 
   # Enable the OpenSSH daemon.
@@ -86,6 +87,19 @@
   networking.firewall.allowPing = true;
   networking.firewall.allowedTCPPorts = [ 445 139 ];
   networking.firewall.allowedUDPPorts = [ 137 138 ];
+
+  security.sudo = {
+    enable = false;
+    extraConfig = ''
+      ${user} ALL=(ALL) NOPASSWD:ALL
+    '';
+  };
+  security.doas = {
+    enable = true;
+    extraConfig = ''
+      permit nopass :wheel
+    '';
+  };
 
   time.timeZone = "Asia/Shanghai";
   system.stateVersion = "23.05";
