@@ -38,6 +38,7 @@
     extraGroups = [ "docker" "wheel" ];
     packages = with pkgs; [
       bitwarden-cli
+      nodePackages.gitmoji-cli
     ];
   };
 

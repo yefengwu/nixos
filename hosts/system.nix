@@ -10,6 +10,7 @@
     systemPackages = with pkgs; [
       inputs.agenix.packages."${system}".default
       fzf
+      nodejs
       fd
       git
       gh
