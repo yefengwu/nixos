@@ -40,8 +40,11 @@ bindkey '^[[3;5~' kill-word
 bindkey '^[[3~' delete-char
 bindkey '^?' backward-delete-char
 
+bindkey '^[OH' beginning-of-line
+bindkey '^[OF' end-of-line
+
 # Ctrl+space: print Git status
-bindkey -s '^ ' ' git status --short^M'
+# bindkey -s '^ ' ' git status --short^M'
 
 # Alt+~: run Git WTF script
 function _git_wtf {

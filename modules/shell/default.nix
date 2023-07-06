@@ -7,4 +7,5 @@
   ./joshuto
   ./neofetch
   ./lazygit
+  ./zellij
 ]
