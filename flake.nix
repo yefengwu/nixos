@@ -28,7 +28,7 @@
     };
   };
 
-  outputs = inputs @ { self, nixpkgs, agenix, home-manager, flake-parts, ... }:
+  outputs = inputs @ { self, nixpkgs, agenix, joshuto, home-manager, flake-parts, ... }:
     let
       user = "xuwei";
       selfPkgs = import ./pkgs;

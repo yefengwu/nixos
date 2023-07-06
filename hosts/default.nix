@@ -70,6 +70,7 @@ in
       inputs.sops-nix.nixosModules.sops
       inputs.agenix.nixosModules.default
       inputs.disko.nixosModules.disko
+      # inputs.joshuto.overlays.default
       inputs.lanzaboote.nixosModules.lanzaboote
       inputs.home-manager.nixosModules.home-manager
       {
@@ -91,7 +92,7 @@ in
               #  inputs.rust-overlay.overlays.default
               #  inputs.picom.overlays.default
               #  inputs.nil.overlays.default
-              #  inputs.joshuto.overlays.default
+              inputs.joshuto.overlays.default
               #  inputs.nixd.overlays.default
               # (import inputs.emacs-overlay)
             ]
