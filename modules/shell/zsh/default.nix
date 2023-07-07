@@ -21,6 +21,9 @@
 
       source $HOME/.zinit/bin/zinit.zsh
 
+      ### get special sub dir or file of github
+      export PATH=$PATH:$HOME/.local/bin
+
       ### End of Zinit's installer chunk
       zinit light zsh-users/zsh-syntax-highlighting
       zinit light zsh-users/zsh-autosuggestions

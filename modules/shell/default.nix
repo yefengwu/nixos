@@ -8,4 +8,5 @@
   ./neofetch
   ./lazygit
   ./zellij
+  ./scripts
 ]

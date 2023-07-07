@@ -92,8 +92,8 @@
 
   networking.firewall.enable = false;
   networking.firewall.allowPing = true;
-  networking.firewall.allowedTCPPorts = [ 445 139 ];
-  networking.firewall.allowedUDPPorts = [ 137 138 ];
+  networking.firewall.allowedTCPPorts = [ 445 139 8888 ];
+  networking.firewall.allowedUDPPorts = [ 137 138 8888 ];
 
   security.sudo = {
     enable = false;
