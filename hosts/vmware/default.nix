@@ -40,6 +40,9 @@
       bitwarden-cli
       nodePackages.gitmoji-cli
     ];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcQrjBNZyF2c17xR1voejEDL34tGSv4TaJJFSGimFAj xuwei@UM690"
+    ];
   };
 
   # Enable the OpenSSH daemon.
