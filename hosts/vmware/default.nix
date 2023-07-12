@@ -41,7 +41,7 @@
       nodePackages.gitmoji-cli
     ];
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcQrjBNZyF2c17xR1voejEDL34tGSv4TaJJFSGimFAj xuwei@UM690"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIqZLefe+elB4zshYB722ZYCaxBsEyZWvaYy3PQmSUP2 franklxw@outlook.com"
     ];
   };
 

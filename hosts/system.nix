@@ -15,6 +15,7 @@
       git
       gh
       gcc
+      gnumake
       unzip
       zip
       rar
