@@ -5,6 +5,7 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../modules/desktop/gnome
+      ../../modules/virtualisation/docker
       # ../../secrets
     ];
 
@@ -90,10 +91,10 @@
     };
   };
 
-  networking.firewall.enable = false;
+  networking.firewall.enable = true;
   networking.firewall.allowPing = true;
-  networking.firewall.allowedTCPPorts = [ 445 139 8888 ];
-  networking.firewall.allowedUDPPorts = [ 137 138 8888 ];
+  networking.firewall.allowedTCPPorts = [ 445 139 8888 80 ];
+  networking.firewall.allowedUDPPorts = [ 137 138 8888 80 ];
 
   security.sudo = {
     enable = false;

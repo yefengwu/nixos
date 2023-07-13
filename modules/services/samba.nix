@@ -1,3 +1,5 @@
+{ config, lib, pkgs, ... }:
+{
   services.samba-wsdd.enable = true; # make shares visible for windows 10 clients
   services.samba = {
     enable = true;
@@ -38,3 +40,4 @@
   networking.firewall.allowPing = true;
   networking.firewall.allowedTCPPorts = [ 445 139 ];
   networking.firewall.allowedUDPPorts = [ 137 138 ];
+}
