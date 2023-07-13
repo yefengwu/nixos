@@ -6,8 +6,9 @@ local keymap = vim.api.nvim_set_keymap
 keymap("", "<Space>", "<Nop>", opts)
 keymap("", "q", "<Nop>", opts)
 vim.g.mapleader = " "
+vim.o.timeoutlen = 200
 
-keymap("", "<leader>v", "<C-v>", opts)
+--[[ keymap("", "<leader>v", "<C-v>", opts) ]]
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",
@@ -24,6 +25,7 @@ keymap("n", "S", ":w<CR>", opts)
 
 -- 'jk' key to exit insert mode --
 keymap("i", "jk", "<Esc>", opts)
+keymap("i", "jj", "<Esc>", opts)
 
 -- Better window navigation --
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -36,7 +38,7 @@ keymap("n", "<TAB>", ":bnext<CR>", opts)
 keymap("n", "<S-TAB>", ":bprevious<CR>", opts)
 
 -- Buffer mappings
-keymap("n", "<Space>bd", ":Bdelete<CR>", opts)
+keymap("n", "<Space>c", ":bd<CR>", opts)
 keymap("n", "<Space>bn", ":BufferLineMoveNext<CR>", opts)
 keymap("n", "<Space>bp", ":BufferLineMovePrev<CR>", opts)
 
@@ -80,8 +82,6 @@ keymap("n", "<Space><CR>", ":nohlsearch<CR>", opts)
 keymap("n", "n", "nzz", opts)
 keymap("n", "N", "Nzz", opts)
 
--- tabnew
-keymap("n", "<C-n>", ":tabnew<CR>", opts)
 -- msic --
 keymap("n", "<C-u>", "5k", opts)
 keymap("n", "<C-d>", "5j", opts)

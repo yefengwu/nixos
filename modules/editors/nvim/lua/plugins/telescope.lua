@@ -1,9 +1,10 @@
 return {
 	"nvim-telescope/telescope.nvim",
 	keys = {
-		{ "<A-p>", "<cmd>Telescope<CR>", desc = "telescope" },
+		{ "<A-p>", "<cmd>Telescope commands<CR>", desc = "telescope" },
 		{ "<Leader>f", "<cmd>Telescope find_files<CR>", desc = "telescope" },
 		{ "<Leader>p", "<cmd>Telescope project<CR>", desc = "telescope" },
+		{ "<Leader>s", "<cmd>Telescope live_grep<CR>", desc = "telescope" },
 	},
 	dependencies = { "nvim-telescope/telescope-media-files.nvim", "nvim-telescope/telescope-project.nvim" },
 	config = function()
