@@ -19,8 +19,8 @@ return {
 				quote_highlight = "Quote",
 				quote_string = "┃",
 				fat_headlines = true,
-				fat_headline_upper_string = " ",
-				fat_headline_lower_string = "_",
+				fat_headline_upper_string = "",
+				fat_headline_lower_string = "",
 			},
 		})
 	end,
