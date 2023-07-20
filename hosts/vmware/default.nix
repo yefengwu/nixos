@@ -21,6 +21,7 @@
 
   environment.systemPackages = with pkgs; [
     tree
+    neovim
     file
     mosh
   ];
@@ -52,6 +53,12 @@
     settings.PermitRootLogin = "yes";
     settings.PasswordAuthentication = true;
     # I'll disable this once I can connect.
+  };
+  
+  services.zerotierone = {
+    enable = true;
+    port = 9993;
+    joinNetworks  = ["3efa5cb78a518dee"];
   };
 
 
