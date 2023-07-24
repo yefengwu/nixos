@@ -15,8 +15,16 @@
   virtualisation.vmware.guest.enable = true;
 
   networking = {
-    hostName = "minium";
+    hostName = "vmware";
     networkmanager.enable = true;
+    extraHosts = ''
+      192.168.33.50 lab.in.com
+      192.168.33.50 ng.in.com
+      192.168.33.50 clash.in.com
+      192.168.33.50 nas.in.com
+      192.168.33.50 pve.in.com
+      192.168.33.50 git.in.com
+    '';
   };
 
   environment.systemPackages = with pkgs; [

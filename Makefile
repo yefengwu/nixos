@@ -4,11 +4,11 @@
 #
 ############################################################################
 
-vmware:
-	doas nixos-rebuild --flake .#vmware test
+test:
+	doas nixos-rebuild --flake .#$(HOSTNAME) test
 
-minium:
-	doas nixos-rebuild --flake .#minium test
+switch:
+	doas nixos-rebuild --flake .#$(HOSTNAME) switch
 
 list:
 	doas nix-env --list-generations --profile /nix/var/nix/profiles/system

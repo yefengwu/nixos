@@ -2,8 +2,8 @@
 
 {
   imports =
-    (import ../../modules/shell);
-  #  (import ../../modules/editors);
+    (import ../../modules/shell) ++
+    (import ../../modules/editors);
 
   # home = {
   #   username = "${user}";

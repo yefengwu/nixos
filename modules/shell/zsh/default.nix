@@ -24,6 +24,9 @@
       ### get special sub dir or file of github
       export PATH=$PATH:$HOME/.local/bin
 
+      # set hostname env to use make rebuild system
+      export HOSTNAME=$(hostname)
+
       ### End of Zinit's installer chunk
       zinit light zsh-users/zsh-syntax-highlighting
       zinit light zsh-users/zsh-autosuggestions
