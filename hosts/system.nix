@@ -5,10 +5,11 @@
   time.timeZone = "Asia/Shanghai";
   environment = {
     binsh = "${pkgs.dash}/bin/dash";
-    shells = with pkgs; [ zsh ];
+    shells = with pkgs; [ nushell ];
     variables = { EDITOR = "nvim"; };
     systemPackages = with pkgs; [
       inputs.agenix.packages."${system}".default
+      bat
       fzf
       nodejs
       fd

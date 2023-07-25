@@ -1,5 +1,6 @@
 [
   ./zsh
+  ./nushell
   ./starship
   ./tmux
   ./ssh

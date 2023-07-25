@@ -5,7 +5,9 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../modules/desktop/gnome
-      ../../modules/virtualisation/docker
+      # ../../modules/virtualisation/docker
+      # ../services/gitea.nix
+      ../services/samba.nix
       # ../../secrets
     ];
 
@@ -38,8 +40,8 @@
     initialHashedPassword = "$6$H4uVu105iaTFUNr6$LXi33OjyiRKiY9L4RLVmEIoYYVNLApbbwf/5Q/GtOL.LurJlufYfInoPSrsoFfVa/vqi8Gt8Elu0eOyzxL2WC1";
   };
   # zsh
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
+  # programs.nushell.enable = true;
+  users.defaultUserShell = pkgs.nushell;
   virtualisation.docker.enable = true;
   users.users.${user} = {
     isNormalUser = true;
@@ -62,54 +64,6 @@
     settings.PasswordAuthentication = true;
     # I'll disable this once I can connect.
   };
-  
-  services.zerotierone = {
-    enable = true;
-    port = 9993;
-    joinNetworks  = ["3efa5cb78a518dee"];
-  };
-
-
-  services.samba-wsdd.enable = true; # make shares visible for windows 10 clients
-  services.samba = {
-    enable = true;
-    securityType = "user";
-    extraConfig = ''
-      workgroup = WORKGROUP
-      server string = smbnix
-      server role = standalone server
-      ;netbios name = smbnix
-      ;security = user
-      ;#use sendfile = yes
-      ;#max protocol = smb2
-      ;"hosts allow" = 192.168.0 localhost
-      ;"hosts deny" = 0.0.0.0/0
-      ;"guest account" = nobody
-      ;"map to guest" = bad user
-    '';
-    shares = {
-      nixos = {
-        comment = "nixos shared";
-        path = "/home/xuwei/share";
-        ";browseable" = "yes";
-        ";valid users" = "NOTUSED";
-        public = "no";
-        writable = "yes";
-        printable = "no";
-        ";read only" = "no";
-        ";guest ok" = "no";
-        "create mask" = "0765";
-        ";directory mask" = "0755";
-        "force user" = "xuwei";
-        "force group" = "users";
-      };
-    };
-  };
-
-  networking.firewall.enable = true;
-  networking.firewall.allowPing = true;
-  networking.firewall.allowedTCPPorts = [ 445 139 8888 80 ];
-  networking.firewall.allowedUDPPorts = [ 137 138 8888 80 ];
 
   security.sudo = {
     enable = false;

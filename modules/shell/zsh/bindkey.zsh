@@ -32,7 +32,7 @@ bindkey '^[x' insert-last-command-output
 
 # ctrl+b/f or ctrl+left/right : move word by word (backward/forward)
 bindkey '^b' backward-word
-bindkey '^f' forward-word
+# bindkey '^f' forward-word
 bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
 bindkey '^H' backward-kill-word
@@ -54,6 +54,13 @@ function _git_wtf {
 }
 zle -N _git_wtf
 bindkey '^[`' _git_wtf
+
+function fzf_open_files {
+  nvim $(fzf --height 50% --preview 'bat --color=always {}' --preview-window '~3')
+}
+zle -N fzf_open_files
+
+bindkey '^f' fzf_open_files
 
 # Execute the current suggestion (using zsh-autosuggestions)
 # Alt+Enter = '^[^M' on recent VTE and '^[^J' for older (Lxterminal)
