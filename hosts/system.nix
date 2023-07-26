@@ -10,12 +10,16 @@
     systemPackages = with pkgs; [
       inputs.agenix.packages."${system}".default
       bat
+      chezmoi
+      delta
       fzf
       nodejs
       fd
       git
       gh
       gcc
+      lazygit
+      lazydocker
       gnumake
       unzip
       zip
@@ -25,10 +29,10 @@
       fd
       wget
       neofetch
-      lazydocker
       exa
       ranger
       joshuto
+      starship
       killall
     ];
   };

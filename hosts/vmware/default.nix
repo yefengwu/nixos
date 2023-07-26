@@ -30,10 +30,16 @@
   };
 
   environment.systemPackages = with pkgs; [
+    nushell
+    joshuto
+    file
     tree
     neovim
     file
     mosh
+    rclone
+    tmux
+    zellij
   ];
 
   users.users.root = {
@@ -62,6 +68,7 @@
     enable = true;
     settings.PermitRootLogin = "yes";
     settings.PasswordAuthentication = true;
+    extraConfig = "PrintLastLog no";
     # I'll disable this once I can connect.
   };
 
